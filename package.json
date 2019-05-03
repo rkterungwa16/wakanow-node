@@ -1,0 +1,38 @@
+{
+  "name": "wakanow-node",
+  "version": "1.0.0",
+  "description": "A node library to consume wakanow api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkterungwa16/wakanow-node.git"
+  },
+  "keywords": [
+    "wakanow",
+    "flights",
+    "travel",
+    "api"
+  ],
+  "author": "Richard Terungwa Kombol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkterungwa16/wakanow-node/issues"
+  },
+  "homepage": "https://github.com/rkterungwa16/wakanow-node#readme",
+  "devDependencies": {
+    "@types/node": "^11.13.9",
+    "jest": "^24.7.1",
+    "nodemon": "^1.19.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
