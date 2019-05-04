@@ -1,10 +1,10 @@
-interface AuthenticationRequestBody {
+export interface AuthenticationRequestBody {
   grant_type: string;
   username: string;
   password: string;
 }
 
-interface AuthenticationSuccessResponseBody {
+export interface AuthenticationSuccessResponseBody {
   access_token: string;
   token_type: string;
   username: string;
@@ -12,4 +12,8 @@ interface AuthenticationSuccessResponseBody {
   Id: string;
   ".issued": Date;
   ".expires": Date;
+}
+
+export interface AuthenticationErrorResponseBody {
+  error: string;
 }
