@@ -47,6 +47,7 @@ export class HttpClient {
       }).on('error', (error) => {
         return reject(error)
       }).on('data', (data) => {
+        console.log('response data', data.toString('utf8'))
         return resolve(data.toString('utf8'))
       })
     })
