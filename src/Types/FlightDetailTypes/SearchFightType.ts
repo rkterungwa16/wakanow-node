@@ -8,7 +8,7 @@ interface Itineraries {
   DepartureDate: string;
 }
 
-type FlightSearchType = 'Oneway' | 'Return' | 'Multidestination'
+type FlightSearchType = 'oneway' | 'return' | 'multidestination'
 
 export interface FlightSearchRequestBody {
   FlightSearchType: FlightSearchType;

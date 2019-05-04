@@ -100,8 +100,3 @@ export interface FlightSummaryModel {
 export interface ErrorMessage {
   Message: string;
 }
-
-export interface Headers {
-  'Content-Type': string;
-  Authorization: string;
-}
