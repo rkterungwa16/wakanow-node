@@ -13,12 +13,12 @@ export class HttpClient {
    * @param {String} apiToken - Wakanow API token
    * @param {Object} options - Additional options
    * @param {String} options.protocol - request protocol
-   * @param {String} options.hostname - quickteller SVA api base url
+   * @param {String} options.hostname - wakanow api base url
    * @param {String} options.path Wakanow api resource path
    * @param {String} options.method request method
    * @param {Object} options.requestPayload payload for requests that are not GET
    */
-  constructor(apiToken: string, options: HttpClientConfig) {
+  constructor(options: HttpClientConfig, apiToken?: string) {
     this.apiToken = apiToken;
     this.options = options
   }
@@ -27,7 +27,7 @@ export class HttpClient {
    * @return {Promise} response
    */
 
-  public sendRequest() {
+  public sendRequest(urlEncoded?: 'x-www-form-urlencoded') {
     return new Promise((
       resolve,
       reject
@@ -42,7 +42,7 @@ export class HttpClient {
       Request({
         method: method,
         uri: `${protocol}://${hostname}${path}`,
-        headers: this.generateRequestHeaders(),
+        headers: this.generateRequestHeaders(urlEncoded),
         form: requestPayload
       }).on('error', (error) => {
         return reject(error)
@@ -53,10 +53,10 @@ export class HttpClient {
     })
   }
 
-  private generateRequestHeaders() {
+  private generateRequestHeaders(urlEncoded?: 'x-www-form-urlencoded') {
     return {
       Authorization: `Bearer ${this.apiToken}`,
-      'Content-Type': 'Application/json'
+      'Content-Type': urlEncoded ? `application/${urlEncoded}` : 'Application/json'
     }
   }
 }

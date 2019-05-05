@@ -36,14 +36,14 @@ export class FlightResource {
 
     return new Promise((resolve, reject) => {
       new HttpClient(
-        this.apiToken,
         {
           method,
           protocol,
           hostname,
           path,
           requestPayload
-        }
+        },
+        this.apiToken
       ).sendRequest()
         .then((response: FlightSearchResponseBody) => resolve(response))
         .catch(err => reject(err))
@@ -61,14 +61,14 @@ export class FlightResource {
 
     return new Promise((resolve, reject) => {
       new HttpClient(
-        this.apiToken,
         {
           method,
           protocol,
           hostname,
           path,
           requestPayload
-        }
+        },
+        this.apiToken
       ).sendRequest()
         .then((response: SelectFlightResponseBody) => resolve(response))
         .catch(err => reject(err))
@@ -86,14 +86,14 @@ export class FlightResource {
 
     return new Promise((resolve, reject) => {
       new HttpClient(
-        this.apiToken,
         {
           method,
           protocol,
           hostname,
           path,
           requestPayload
-        }
+        },
+        this.apiToken
       ).sendRequest()
         .then((response: BookFlightResponseBody) => resolve(response))
         .catch(err => reject(err))
@@ -111,16 +111,40 @@ export class FlightResource {
 
     return new Promise((resolve, reject) => {
       new HttpClient(
-        this.apiToken,
         {
           method,
           protocol,
           hostname,
           path,
           requestPayload
-        }
+        },
+        this.apiToken
       ).sendRequest()
         .then((response: FlightTicketResponseBody) => resolve(response))
+        .catch(err => reject(err))
+    })
+  }
+
+  /**
+   * @return {Promise} return results for airports
+   */
+  getAirports (): Promise<{}> {
+    const method = 'get';
+    const path = '/api/flight/airports';
+    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
+    const protocol = 'https';
+
+    return new Promise((resolve, reject) => {
+      new HttpClient(
+        {
+          method,
+          protocol,
+          hostname,
+          path
+        },
+        this.apiToken
+      ).sendRequest()
+        .then((response) => resolve(response))
         .catch(err => reject(err))
     })
   }

@@ -1,6 +1,10 @@
 import {
   FlightResource
-} from './FlightResource'
+} from './FlightResource';
+
+import {
+  Authentication
+} from './Authentication/'
 
 
 /**
@@ -8,10 +12,12 @@ import {
  */
 export class Wakanow {
   FlightResource: FlightResource;
+  Authentication: Authentication;
   /**
    * @param {String} apiToken - wakanow api token
    */
-  constructor (apiToken: string) {
-    this.FlightResource = new FlightResource(apiToken)
+  constructor (apiToken?: string) {
+    this.FlightResource = new FlightResource(apiToken);
+    this.Authentication = new Authentication();
   }
 }
