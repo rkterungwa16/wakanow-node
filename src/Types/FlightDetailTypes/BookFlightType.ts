@@ -12,7 +12,8 @@ interface BookingItemModel {
 
 export interface BookFlightRequestBody {
   PassengerDetails: PassengerDetail[];
-  BookingItemModels: BookingItemModel[]
+  BookingItemModels: BookingItemModel[];
+  BookingId: string;
 }
 
 // interface TravellerDetail {

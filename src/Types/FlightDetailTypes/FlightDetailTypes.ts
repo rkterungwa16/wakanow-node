@@ -1,23 +1,24 @@
 export interface PassengerDetail {
-  PassengerType: string;
-  FirstName: string;
-  MiddleName: string;
-  DateOfBirth: string;
-  Age: number;
-  PhoneNumber: string;
-  PassportNumber: string;
-  ExpiryDate: string;
-  PassportIssuingAuthority: string;
-  Gender: string;
-  Title: string;
-  Email: string;
-  Address: string;
-  Country: string;
-  CountryCode: string;
-  City: string;
-  PostalCode: string;
-  TicketNumber: string;
-  RoomNumber: string;
+  PassengerType?: string;
+  FirstName?: string;
+  LastName?: string;
+  MiddleName?: string;
+  DateOfBirth?: string;
+  Age?: number;
+  PhoneNumber?: string;
+  PassportNumber?: string;
+  ExpiryDate?: string;
+  PassportIssuingAuthority?: string;
+  Gender?: string;
+  Title?: string;
+  Email?: string;
+  Address?: string;
+  Country?: string;
+  CountryCode?: string;
+  City?: string;
+  PostalCode?: string;
+  TicketNumber?: string;
+  RoomNumber?: string;
 }
 
 export interface FlightLeg {

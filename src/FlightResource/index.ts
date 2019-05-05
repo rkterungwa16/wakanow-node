@@ -74,4 +74,29 @@ export class FlightResource {
         .catch(err => reject(err))
     })
   }
+
+  /**
+   * @return {Promise} return results for booking of flight
+   */
+  flightBooking (requestPayload: BookFlightRequestBody): Promise<BookFlightResponseBody> {
+    const method = 'post';
+    const path = '/api/flight/book';
+    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
+    const protocol = 'https';
+
+    return new Promise((resolve, reject) => {
+      new HttpClient(
+        this.apiToken,
+        {
+          method,
+          protocol,
+          hostname,
+          path,
+          requestPayload
+        }
+      ).sendRequest()
+        .then((response: BookFlightResponseBody) => resolve(response))
+        .catch(err => reject(err))
+    })
+  }
 }
