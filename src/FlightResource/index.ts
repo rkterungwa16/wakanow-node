@@ -1,3 +1,4 @@
+
 import {
   HttpClient
 } from '../HttpClient'
@@ -144,7 +145,9 @@ export class FlightResource {
         },
         this.apiToken
       ).sendRequest()
-        .then((response) => resolve(response))
+        .then((response: string) => {
+          return resolve(response)
+        })
         .catch(err => reject(err))
     })
   }

@@ -6,9 +6,17 @@ export interface HttpClientConfig {
   requestPayload?: object;
 };
 
-export interface Headers {
+export interface RequestHeaders {
   'Content-Type': string;
   Authorization: string;
+}
+
+export interface ResponseHeaders {
+  headers: {
+    'content-length'?: string;
+    'content-type'?: string;
+  },
+  statusCode: number;
 }
 
 // export interface HttpClientInterface {

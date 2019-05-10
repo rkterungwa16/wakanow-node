@@ -2,7 +2,7 @@ import Request from 'request';
 
 import {
   HttpClientConfig,
-  Headers
+  ResponseHeaders
 } from '../Types'
 
 
@@ -28,6 +28,11 @@ export class HttpClient {
    */
 
   public sendRequest(urlEncoded?: 'x-www-form-urlencoded') {
+    let headers: {
+      'content-length'?: string;
+      'content-type'?: string;
+    };
+    let statusCode: number;
     return new Promise((
       resolve,
       reject
@@ -45,10 +50,21 @@ export class HttpClient {
         headers: this.generateRequestHeaders(urlEncoded),
         form: requestPayload
       }).on('error', (error) => {
-        return reject(error)
-      }).on('data', (data) => {
-        console.log('response data', data.toString('utf8'))
-        return resolve(data.toString('utf8'))
+        return reject({
+          statusCode,
+          headers,
+          error
+        })
+      }).on('data', (data: Buffer) => {
+        return resolve({
+          statusCode,
+          headers,
+          data: data.toString('utf8')
+        })
+      })
+      .on('response', (res: ResponseHeaders) => {
+        headers = res.headers;
+        statusCode = res.statusCode;
       })
     })
   }
