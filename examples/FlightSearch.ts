@@ -2,7 +2,7 @@ import {
   Wakanow
 } from '../src'
 
-const wakanowNode = new Wakanow('U8sIDvQjJFx7PuNqvn9Nz2RxXYbPsQIfVDhM8vHBMkl_VlC0Gsti-dPsrdd8GHjzHWyhaU2UcHbYtCwdoGhcBJbY8hYv2_X33tGOlc9d_HKq7TytgPm3GSPfHlAy85r8Tap1NY65KfZQcHS9o1whTzy_jVdwOcQHqudFzh0hh0GkV8pWB6WXBu0_Z6U0d_pgZYwfCbKqRovXBDiKnfcVe0PWiZDUeJ2ziiZmpnaz2h7mvvXiv0jJvdiFIzIfo6GmKSr3EwQjtvvvGODGmh59NsJZfvCkLjsqiuLCpCyroIqRRWJe00piggDjMYoR0kNa1OHiqsQG3W9iiTcDvwgfUsGCYjUEKs5cuLtecJOP4Pwm46RERJ5har1G-8qkc7a_RvHy4Uh-Fyy9HNWKVuzLs2QM044z6GpLqMIOfGkdynLrcjhXTin6q464RrvNheDGFuX_iXXgVCuCpWxmccCc5Xq0urH7rCz0WHp8IwcluyudYiRcd29681uSBVm2AQf5P-FMbfxNR6HnISzjeO9DAo95yeAfnLxmjjyNzCONU6DY29I3W-Hx9I4MxZ_qdFsFRV9xu42SMiq2sW30I9jHYT4DDvWubvMDh--Wr9HFfPIibWYMN6qRA8GBtkOtBn3hJ5VaHQ9WO6j_fNGMO7URguuUeQsGo1_YBGi1q4b3SvhW5grLDZHyACCF49qYikiAypbtk7HhVhvngd7a8eG_uOkIZnn9BQyx7jjVQoBVlxfKw3sCZDVjeM38DSQolONRz1jBzUmqLHjObZwCb5Wa7quoxqFEoyQU6xfWevWKZIJtELR0gtCrcmjH2VT3QLLFbmMwv88QYr-PHropU54RrJfOx5gzlqaTcc5KCWOHI1FTK4SLpgDMh-KqxnPYh7Lm3ow0uaeHayvHVAQqcqdsVe0TXjs9ZeyoE672NOuiDxv-uJxBxlT0sgdHNIgyujscJtcvlmZGL_0uHuVs0O8WyYu6aVs')
+const wakanowNode = new Wakanow('development', '7kpFBfoQt5uGClMc9g4bh7t5feQId2yAMfhFcp53Wp0JolvMic4hqtc7PNQLDt8cxxVPTK7edHh4rQDpMmq1AxOZdHA7A-p-733Bk3U7iy0th0GVzIiWOJKOsx7tEntscwtIYIur6iDH7ssoPhWExP9fv-W7hWJNLV30dPltftjMoYCzj1pgEPtkah2eXVlSw9PG5yqXgaN2p5uRGtm1Yx28kmvg_3pn33lIrBwS2GiXrIUu22QtsB1Pm0MSIMjbmt5dB8uUTtV5qVmv5ZWcXTBNqEqZtTtkoNs47-AGL9nPrFu-PXldT7F6KpF-OZ49fl5bqhCUmXX9GP4prOpeiyaxi8f_fjigp7xn12b5Gk1LTgbNeT7vgchEoqKxp9SD3V9ufw4_6DNH1Ni5z-5XvEH6zUhIfj2DgqrpAl0CSvVfahaU24DExDkbOA9UnIZaKIg8dVVYi7TXC3nEEf1Isf_n4x7XP-z8AMVuekHzYLhEckyZcdGy3uYXb9UPQjOOMtRiLDVvSNkwXf7pVuQY--Bjr-nMoquKVAJMJ8O9A6pomnmw1NvvzT3ZR8LLETZG_eLdJrYTFYEzGNHFl8P1KmhAszLwelCFYvNngyGh3ch04uL1fUs_HktO3t5ZcHDsFWxcYrUwdtALOQO_vklyqfQEbPR4Uvwfab9t8Mb1w06B5D2GFSoPuZaTGEu2GtazAN5AWTcpnylvJdClzgD-s3hK-DJQTHu_m9Z9tgUl-UU4MunCeRliYmdrHEk5jNboRhn_KkvHQYjVJ_Y95JOs6o_Gz_cjJgniX7Xp3G8M9GBdbA-AylxpkkZCrz0_j2DgIQ4DUzjvBtlKUVXullkYFvFe-R9llToOL6BmvBRIR8A-Q-IEvil1YWdt7YaXK-689A35E17O5piPzWxiAZnGg8aE65MEjy8wdY-B7oqOZ_2QqMYPiQ2PBJHjiGAU44iVkO3n_HvEOhs3p7gBUu_WfjHShlM')
 
 wakanowNode.FlightResource.flightSearch(
   {
@@ -13,11 +13,11 @@ wakanowNode.FlightResource.flightSearch(
     Ticketclass: 'Y',
     TargetCurrency: 'NGN',
     Itineraries: [
-       {
-         Departure: 'LOS',
-         Destination: 'DXB',
-         DepartureDate: '11/15/2019'
-       }
+      {
+        Departure: 'LOS',
+        Destination: 'DXB',
+        DepartureDate: '11/15/2019'
+      }
     ]
   }
 )

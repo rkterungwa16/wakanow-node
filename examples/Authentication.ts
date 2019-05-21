@@ -2,7 +2,7 @@ import {
   Wakanow
 } from '../src'
 
-const wakanowNode = new Wakanow()
+const wakanowNode = new Wakanow('development')
 
 wakanowNode.Authentication.generateToken(
   {

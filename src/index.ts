@@ -6,6 +6,10 @@ import {
   Authentication
 } from './Authentication/'
 
+import {
+  environment
+} from './Types'
+
 
 /**
  * Wakanow
@@ -15,9 +19,10 @@ export class Wakanow {
   Authentication: Authentication;
   /**
    * @param {String} apiToken - wakanow api token
+   * @param {String} environment - api environment
    */
-  constructor (apiToken?: string) {
-    this.FlightResource = new FlightResource(apiToken);
-    this.Authentication = new Authentication();
+  constructor (environment: environment, apiToken?: string) {
+    this.FlightResource = new FlightResource(environment, apiToken);
+    this.Authentication = new Authentication(environment);
   }
 }

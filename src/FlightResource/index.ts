@@ -11,7 +11,8 @@ import {
   BookFlightRequestBody,
   BookFlightResponseBody,
   FlightTicketRequestBody,
-  FlightTicketResponseBody
+  FlightTicketResponseBody,
+  environment
 } from '../Types'
 
 /**
@@ -19,11 +20,15 @@ import {
  */
 export class FlightResource {
   apiToken: string;
+  environment: environment;
+  hostname: string;
   /**
    * @param {String} apiToken - Wakanow API token
    */
-  constructor(apiToken: string) {
+  constructor(environment: environment, apiToken: string, ) {
     this.apiToken = apiToken;
+    this.environment = environment;
+    this.hostname = environment !== 'production' ? 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net' : '';;
   }
 
   /**
@@ -32,7 +37,6 @@ export class FlightResource {
   flightSearch (requestPayload: FlightSearchRequestBody): Promise<FlightSearchResponseBody> {
     const method = 'post';
     const path = '/api/flight/search';
-    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
     const protocol = 'https';
 
     return new Promise((resolve, reject) => {
@@ -40,7 +44,7 @@ export class FlightResource {
         {
           method,
           protocol,
-          hostname,
+          hostname: this.hostname,
           path,
           requestPayload
         },
@@ -57,7 +61,6 @@ export class FlightResource {
   selectFlight (requestPayload: SelectFlightRequestBody): Promise<SelectFlightResponseBody> {
     const method = 'post';
     const path = '/api/flight/select';
-    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
     const protocol = 'https';
 
     return new Promise((resolve, reject) => {
@@ -65,7 +68,7 @@ export class FlightResource {
         {
           method,
           protocol,
-          hostname,
+          hostname: this.hostname,
           path,
           requestPayload
         },
@@ -82,7 +85,6 @@ export class FlightResource {
   flightBooking (requestPayload: BookFlightRequestBody): Promise<BookFlightResponseBody> {
     const method = 'post';
     const path = '/api/flight/book';
-    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
     const protocol = 'https';
 
     return new Promise((resolve, reject) => {
@@ -90,7 +92,7 @@ export class FlightResource {
         {
           method,
           protocol,
-          hostname,
+          hostname: this.hostname,
           path,
           requestPayload
         },
@@ -107,7 +109,6 @@ export class FlightResource {
   flightTicket (requestPayload: FlightTicketRequestBody): Promise<FlightTicketResponseBody> {
     const method = 'post';
     const path = '/api/flight/ticketpnr';
-    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
     const protocol = 'https';
 
     return new Promise((resolve, reject) => {
@@ -115,7 +116,7 @@ export class FlightResource {
         {
           method,
           protocol,
-          hostname,
+          hostname: this.hostname,
           path,
           requestPayload
         },
@@ -132,7 +133,6 @@ export class FlightResource {
   getAirports (): Promise<{}> {
     const method = 'get';
     const path = '/api/flight/airports';
-    const hostname = 'wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net';
     const protocol = 'https';
 
     return new Promise((resolve, reject) => {
@@ -140,7 +140,7 @@ export class FlightResource {
         {
           method,
           protocol,
-          hostname,
+          hostname: this.hostname,
           path
         },
         this.apiToken

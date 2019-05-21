@@ -19,6 +19,8 @@ export interface ResponseHeaders {
   statusCode: number;
 }
 
+export type environment = 'development' | 'production';
+
 // export interface HttpClientInterface {
 //   apiToken: string;
 //   options: HttpClientConfig;
