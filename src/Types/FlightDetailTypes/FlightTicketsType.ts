@@ -1,6 +1,6 @@
 import {
-  FlightBookingSummaryModel
-} from './BookFlightType'
+  FlightBookingSummaryModel,
+} from "./BookFlightType";
 
 export interface FlightTicketRequestBody {
   BookingId: string;
@@ -12,5 +12,5 @@ export interface FlightTicketResponseBody {
   CustomerId: string;
   ProductType: string;
   FlightBookingSummary: FlightBookingSummaryModel;
-  ProductTermsAndConditions: null;
+  ProductTermsAndConditions: undefined;
 }

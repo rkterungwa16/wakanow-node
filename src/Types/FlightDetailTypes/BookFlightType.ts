@@ -1,9 +1,9 @@
 import {
   PassengerDetail,
-  FlightSummaryModel
-} from './FlightDetailTypes'
+  FlightSummaryModel,
+} from "./FlightDetailTypes";
 
-interface BookingItemModel {
+export interface BookingItemModel {
   ProductType: string;
   BookingData: string;
   BookingId: string;
@@ -13,7 +13,6 @@ interface BookingItemModel {
 export interface BookFlightRequestBody {
   PassengerDetails: PassengerDetail[];
   BookingItemModels: BookingItemModel[];
-  BookingId: string;
 }
 
 // interface TravellerDetail {
@@ -44,8 +43,8 @@ export interface FlightBookingSummaryModel {
   PnrDate: string;
   FlightSummaryModel: FlightSummaryModel;
   TravellerDetails: PassengerDetail[];
-  PnrStatus: null;
-  TicketStatus: null;
+  PnrStatus: undefined;
+  TicketStatus: undefined;
 }
 
 interface FlightBookingResult {
@@ -60,6 +59,6 @@ export interface BookFlightResponseBody {
   CustomerId: string;
   ProductType: string;
   TargetCurrency: string;
-  ProductTermsAndConditions: null;
+  ProductTermsAndConditions: undefined;
   FlightBookingResult: FlightBookingResult;
 }

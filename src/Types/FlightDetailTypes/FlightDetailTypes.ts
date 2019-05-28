@@ -42,7 +42,7 @@ export interface FlightLeg {
   FareType: string;
   FarebasisCode: string;
   CorporateCode: string;
-  FlightSelectData: null;
+  FlightSelectData: undefined;
 }
 
 export interface Flight {
@@ -57,9 +57,9 @@ export interface Flight {
   Stops: number;
   StopTime: string;
   TripDuration: string;
-  StopCity: null;
+  StopCity: undefined;
   AirlineLogoUrl: string;
-  FlightLegs: FlightLeg[]
+  FlightLegs: FlightLeg[];
 }
 
 export interface PriceDetail {
@@ -91,7 +91,7 @@ export interface FlightCombination {
   IsRefundable: boolean;
   IncludePaySmallSmall: boolean;
   DownPaymentDetailInPercentage: number;
-  PaySmallSmallLockDownPrice: number
+  PaySmallSmallLockDownPrice: number;
 }
 
 export interface FlightSummaryModel {

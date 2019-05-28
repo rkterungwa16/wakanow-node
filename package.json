@@ -2,10 +2,14 @@
   "name": "wakanow-node",
   "version": "1.0.0",
   "description": "A node library to consume wakanow api",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "example": "ts-node examples/Authentication.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "fix": "tslint --fix -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
   },
   "homepage": "https://github.com/rkterungwa16/wakanow-node#readme",
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/node": "^11.13.9",
     "@types/request": "^2.48.1",
     "@types/unzip": "^0.1.1",
@@ -36,6 +41,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
+    "dotenv": "^8.0.0",
     "request": "^2.88.0",
     "unzip": "^0.1.11"
   }

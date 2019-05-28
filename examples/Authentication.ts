@@ -1,15 +1,15 @@
 import {
-  Wakanow
-} from '../src'
+  Wakanow,
+} from "../src";
 
-const wakanowNode = new Wakanow('development')
+const wakanowNode = new Wakanow("development");
 
-wakanowNode.Authentication.generateToken(
+wakanowNode.authentication.generateToken(
   {
-    username: '0c23133664b74ef7b9a45a2286a27b24',
-    password: 'yez=1_t07D',
-    grant_type: 'password'
- }
+    username: "0c23133664b74ef7b9a45a2286a27b24",
+    password: "yez=1_t07D",
+    grant_type: "password",
+  },
 ).then((response) => {
-  console.log('response', response)
-})
+  console.log("response", response);
+});

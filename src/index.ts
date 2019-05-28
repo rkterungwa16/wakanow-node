@@ -1,28 +1,28 @@
 import {
-  FlightResource
-} from './FlightResource';
+  FlightResource,
+} from "./FlightResource";
 
 import {
-  Authentication
-} from './Authentication/'
+  Authentication,
+} from "./Authentication/";
 
 import {
-  environment
-} from './Types'
+  environment,
+} from "./Types";
 
-
+export * from "./Types";
 /**
  * Wakanow
  */
 export class Wakanow {
-  FlightResource: FlightResource;
-  Authentication: Authentication;
+  flightResource: FlightResource;
+  authentication: Authentication;
   /**
    * @param {String} apiToken - wakanow api token
    * @param {String} environment - api environment
    */
   constructor (environment: environment, apiToken?: string) {
-    this.FlightResource = new FlightResource(environment, apiToken);
-    this.Authentication = new Authentication(environment);
+    this.flightResource = new FlightResource(environment, apiToken);
+    this.authentication = new Authentication(environment);
   }
 }

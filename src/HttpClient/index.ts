@@ -1,10 +1,8 @@
-import Request from 'request';
+import request from "request";
 
 import {
   HttpClientConfig,
-  ResponseHeaders
-} from '../Types'
-
+} from "../Types";
 
 export class HttpClient {
   apiToken: string;
@@ -20,59 +18,49 @@ export class HttpClient {
    */
   constructor(options: HttpClientConfig, apiToken?: string) {
     this.apiToken = apiToken;
-    this.options = options
+    this.options = options;
   }
 
   /**
    * @return {Promise} response
    */
 
-  public sendRequest(urlEncoded?: 'x-www-form-urlencoded') {
-    let headers: {
-      'content-length'?: string;
-      'content-type'?: string;
-    };
-    let statusCode: number;
+  public sendRequest(urlEncoded?: "x-www-form-urlencoded") {
+    const buffer: Buffer[] = [];
+    let bufsize: number = 0;
     return new Promise((
       resolve,
-      reject
+      reject,
     ) => {
       const {
         hostname,
         protocol,
         path,
         method,
-        requestPayload
+        requestPayload,
       } = this.options;
-      Request({
-        method: method,
+      request({
+        method,
         uri: `${protocol}://${hostname}${path}`,
         headers: this.generateRequestHeaders(urlEncoded),
-        form: requestPayload
-      }).on('error', (error) => {
-        return reject({
-          statusCode,
-          headers,
-          error
-        })
-      }).on('data', (data: Buffer) => {
-        return resolve({
-          statusCode,
-          headers,
-          data: data.toString('utf8')
-        })
+        form: requestPayload,
+      }).on("error", (error: Error) => {
+        return reject(error);
+      }).on("data", (data: Buffer) => {
+        buffer.push(data);
+        bufsize += data.length;
       })
-      .on('response', (res: ResponseHeaders) => {
-        headers = res.headers;
-        statusCode = res.statusCode;
-      })
-    })
+      .on("end", () => {
+        const body = Buffer.concat(buffer, bufsize);
+        return resolve(body.toString("utf8"));
+      });
+    });
   }
 
-  private generateRequestHeaders(urlEncoded?: 'x-www-form-urlencoded') {
+  private generateRequestHeaders(urlEncoded?: "x-www-form-urlencoded") {
     return {
       Authorization: `Bearer ${this.apiToken}`,
-      'Content-Type': urlEncoded ? `application/${urlEncoded}` : 'Application/json'
-    }
+      "Content-Type": urlEncoded ? `application/${urlEncoded}` : "Application/json",
+    };
   }
 }

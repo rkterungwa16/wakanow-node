@@ -1,14 +1,12 @@
 import {
-  FlightCombination
-} from './FlightDetailTypes';
+  FlightCombination,
+} from "./FlightDetailTypes";
 
 interface Itineraries {
-  Departure: string;
-  Destination: string;
-  DepartureDate: string;
+  [key: string]: string;
 }
 
-type FlightSearchType = 'oneway' | 'return' | 'multidestination'
+type FlightSearchType = "Oneway" | "Return" | "Multidestination";
 
 export interface FlightSearchRequestBody {
   FlightSearchType: FlightSearchType;
