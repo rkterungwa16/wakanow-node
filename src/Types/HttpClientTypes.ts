@@ -21,6 +21,10 @@ export interface ResponseHeaders {
 
 export type environment = "development" | "production";
 
+export interface ErrorResponse extends ResponseHeaders {
+  body: Error;
+}
+
 // export interface HttpClientInterface {
 //   apiToken: string;
 //   options: HttpClientConfig;

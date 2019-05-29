@@ -54,7 +54,7 @@ export class HttpClient {
         return reject({
           headers,
           statusCode,
-          error,
+          body: error,
         });
       }).on("data", (data: Buffer) => {
         buffer.push(data);

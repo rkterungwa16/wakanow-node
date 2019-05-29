@@ -13,6 +13,7 @@ import {
   FlightTicketRequestBody,
   FlightTicketResponseBody,
   environment,
+  ErrorResponse,
 } from "../Types";
 
 /**
@@ -54,7 +55,7 @@ export class FlightResource {
         .then((response: FlightSearchResponseBody) => {
           resolve(response);
         })
-        .catch(err => reject(err));
+        .catch((err: ErrorResponse) => reject(err));
     });
   }
 
@@ -78,7 +79,7 @@ export class FlightResource {
         this.apiToken,
       ).sendRequest()
         .then((response: SelectFlightResponseBody) => resolve(response))
-        .catch(err => reject(err));
+        .catch((err: ErrorResponse) => reject(err));
     });
   }
 
@@ -102,7 +103,7 @@ export class FlightResource {
         this.apiToken,
       ).sendRequest()
         .then((response: BookFlightResponseBody) => resolve(response))
-        .catch(err => reject(err));
+        .catch((err: ErrorResponse) => reject(err));
     });
   }
 
@@ -126,7 +127,7 @@ export class FlightResource {
         this.apiToken,
       ).sendRequest()
         .then((response: FlightTicketResponseBody) => resolve(response))
-        .catch(err => reject(err));
+        .catch((err: ErrorResponse) => reject(err));
     });
   }
 
@@ -151,7 +152,7 @@ export class FlightResource {
         .then((response: string) => {
           return resolve(response);
         })
-        .catch(err => reject(err));
+        .catch((err: ErrorResponse) => reject(err));
     });
   }
 }

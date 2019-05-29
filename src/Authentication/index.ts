@@ -5,6 +5,7 @@ import {
   AuthenticationRequestBody,
   AuthenticationSuccessResponseBody,
   environment,
+  ErrorResponse,
 } from "../Types";
 
 export class Authentication {
@@ -34,7 +35,7 @@ export class Authentication {
         .then((response: AuthenticationSuccessResponseBody) => {
           resolve(response);
         })
-        .catch(err => reject(err));
+        .catch((err: ErrorResponse) => reject(err));
     });
   }
 }

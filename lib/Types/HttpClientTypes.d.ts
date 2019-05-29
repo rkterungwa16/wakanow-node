@@ -17,3 +17,6 @@ export interface ResponseHeaders {
     statusCode: number;
 }
 export declare type environment = "development" | "production";
+export interface ErrorResponse extends ResponseHeaders {
+    body: Error;
+}
