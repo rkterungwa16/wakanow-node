@@ -1,4 +1,4 @@
-import { FlightSearchRequestBody, FlightSearchResponseBody, SelectFlightRequestBody, SelectFlightResponseBody, BookFlightRequestBody, BookFlightResponseBody, FlightTicketRequestBody, FlightTicketResponseBody, environment } from '../Types';
+import { FlightSearchRequestBody, FlightSearchResponseBody, SelectFlightRequestBody, SelectFlightResponseBody, BookFlightRequestBody, BookFlightResponseBody, FlightTicketRequestBody, FlightTicketResponseBody, environment } from "../Types";
 /**
  *  Manage Passenger flight
  */
@@ -13,7 +13,7 @@ export declare class FlightResource {
     /**
      * @return {Promise} return results for flight search
      */
-    flightSearch(requestPayload: FlightSearchRequestBody): Promise<FlightSearchResponseBody[]>;
+    flightSearch(requestPayload: FlightSearchRequestBody): Promise<FlightSearchResponseBody>;
     /**
      * @return {Promise} return results for selected flight
      */

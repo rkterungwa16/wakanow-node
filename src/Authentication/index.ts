@@ -12,12 +12,13 @@ export class Authentication {
   constructor(environment: environment) {
     this.environment = environment;
   }
-  generateToken(requestPayload: AuthenticationRequestBody): Promise<any> {
+  generateToken(requestPayload: AuthenticationRequestBody):
+  Promise<AuthenticationSuccessResponseBody> {
     const method = "post";
     const path = "/token";
     const hostname = this.environment !== "production" ?
-    "wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net" :
-    "";
+      "wakanow-api-affiliate-b2b-devtest-test.azurewebsites.net" :
+      "";
     const protocol = "https";
 
     return new Promise((resolve, reject) => {
@@ -30,8 +31,8 @@ export class Authentication {
           requestPayload,
         },
       ).sendRequest("x-www-form-urlencoded")
-        .then((response: string) => {
-          resolve(JSON.parse(response));
+        .then((response: AuthenticationSuccessResponseBody) => {
+          resolve(response);
         })
         .catch(err => reject(err));
     });

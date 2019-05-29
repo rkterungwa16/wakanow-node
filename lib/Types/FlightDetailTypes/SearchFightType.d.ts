@@ -1,8 +1,9 @@
-import { FlightCombination } from './FlightDetailTypes';
+import { FlightCombination } from "./FlightDetailTypes";
+import { ResponseHeaders } from "../";
 interface Itineraries {
     [key: string]: string;
 }
-declare type FlightSearchType = 'Oneway' | 'Return' | 'Multidestination';
+declare type FlightSearchType = "Oneway" | "Return" | "Multidestination";
 export interface FlightSearchRequestBody {
     FlightSearchType: FlightSearchType;
     Ticketclass: string;
@@ -12,8 +13,10 @@ export interface FlightSearchRequestBody {
     Itineraries: Itineraries[];
     TargetCurrency: string;
 }
-export interface FlightSearchResponseBody {
-    FlightCombination: FlightCombination;
-    SelectData: string;
+export interface FlightSearchResponseBody extends ResponseHeaders {
+    data: {
+        FlightCombination: FlightCombination;
+        SelectData: string;
+    }[];
 }
 export {};

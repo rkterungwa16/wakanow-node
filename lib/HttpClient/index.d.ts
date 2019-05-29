@@ -1,4 +1,4 @@
-import { HttpClientConfig } from '../Types';
+import { HttpClientConfig } from "../Types";
 export declare class HttpClient {
     apiToken: string;
     options: HttpClientConfig;
@@ -15,6 +15,6 @@ export declare class HttpClient {
     /**
      * @return {Promise} response
      */
-    sendRequest(urlEncoded?: 'x-www-form-urlencoded'): Promise<{}>;
+    sendRequest(urlEncoded?: "x-www-form-urlencoded"): Promise<{}>;
     private generateRequestHeaders;
 }

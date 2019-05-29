@@ -3,6 +3,10 @@ import {
   FlightSummaryModel,
 } from "./FlightDetailTypes";
 
+import {
+  ResponseHeaders,
+} from "../";
+
 export interface BookingItemModel {
   ProductType: string;
   BookingData: string;
@@ -54,11 +58,13 @@ interface FlightBookingResult {
   HasResult: boolean;
 }
 
-export interface BookFlightResponseBody {
-  BookingId: string;
-  CustomerId: string;
-  ProductType: string;
-  TargetCurrency: string;
-  ProductTermsAndConditions: undefined;
-  FlightBookingResult: FlightBookingResult;
+export interface BookFlightResponseBody extends ResponseHeaders {
+  data: {
+    BookingId: string;
+    CustomerId: string;
+    ProductType: string;
+    TargetCurrency: string;
+    ProductTermsAndConditions: undefined;
+    FlightBookingResult: FlightBookingResult;
+  };
 }

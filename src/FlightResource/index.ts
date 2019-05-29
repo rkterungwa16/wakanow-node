@@ -35,7 +35,7 @@ export class FlightResource {
   /**
    * @return {Promise} return results for flight search
    */
-  flightSearch (requestPayload: FlightSearchRequestBody): Promise<FlightSearchResponseBody[]> {
+  flightSearch (requestPayload: FlightSearchRequestBody): Promise<FlightSearchResponseBody> {
     const method = "post";
     const path = "/api/flight/search";
     const protocol = "https";
@@ -51,8 +51,8 @@ export class FlightResource {
         },
         this.apiToken,
       ).sendRequest()
-        .then((response: string) => {
-          resolve(JSON.parse(response));
+        .then((response: FlightSearchResponseBody) => {
+          resolve(response);
         })
         .catch(err => reject(err));
     });
@@ -77,7 +77,7 @@ export class FlightResource {
         },
         this.apiToken,
       ).sendRequest()
-        .then((response: string) => resolve(JSON.parse(response)))
+        .then((response: SelectFlightResponseBody) => resolve(response))
         .catch(err => reject(err));
     });
   }
@@ -101,7 +101,7 @@ export class FlightResource {
         },
         this.apiToken,
       ).sendRequest()
-        .then((response: string) => resolve(JSON.parse(response)))
+        .then((response: BookFlightResponseBody) => resolve(response))
         .catch(err => reject(err));
     });
   }
@@ -125,7 +125,7 @@ export class FlightResource {
         },
         this.apiToken,
       ).sendRequest()
-        .then((response: string) => resolve(JSON.parse(response)))
+        .then((response: FlightTicketResponseBody) => resolve(response))
         .catch(err => reject(err));
     });
   }

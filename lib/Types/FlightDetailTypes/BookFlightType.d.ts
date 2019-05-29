@@ -1,4 +1,5 @@
-import { PassengerDetail, FlightSummaryModel } from './FlightDetailTypes';
+import { PassengerDetail, FlightSummaryModel } from "./FlightDetailTypes";
+import { ResponseHeaders } from "../";
 export interface BookingItemModel {
     ProductType: string;
     BookingData: string;
@@ -8,15 +9,14 @@ export interface BookingItemModel {
 export interface BookFlightRequestBody {
     PassengerDetails: PassengerDetail[];
     BookingItemModels: BookingItemModel[];
-    BookingId: string;
 }
 export interface FlightBookingSummaryModel {
     PnrReferenceNumber: string;
     PnrDate: string;
     FlightSummaryModel: FlightSummaryModel;
     TravellerDetails: PassengerDetail[];
-    PnrStatus: null;
-    TicketStatus: null;
+    PnrStatus: undefined;
+    TicketStatus: undefined;
 }
 interface FlightBookingResult {
     FlightBookingSummaryModel: FlightBookingSummaryModel;
@@ -24,12 +24,14 @@ interface FlightBookingResult {
     IsFareHigh: boolean;
     HasResult: boolean;
 }
-export interface BookFlightResponseBody {
-    BookingId: string;
-    CustomerId: string;
-    ProductType: string;
-    TargetCurrency: string;
-    ProductTermsAndConditions: null;
-    FlightBookingResult: FlightBookingResult;
+export interface BookFlightResponseBody extends ResponseHeaders {
+    data: {
+        BookingId: string;
+        CustomerId: string;
+        ProductType: string;
+        TargetCurrency: string;
+        ProductTermsAndConditions: undefined;
+        FlightBookingResult: FlightBookingResult;
+    };
 }
 export {};

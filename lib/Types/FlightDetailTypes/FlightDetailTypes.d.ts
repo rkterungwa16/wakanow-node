@@ -41,7 +41,7 @@ export interface FlightLeg {
     FareType: string;
     FarebasisCode: string;
     CorporateCode: string;
-    FlightSelectData: null;
+    FlightSelectData: undefined;
 }
 export interface Flight {
     Name: string;
@@ -55,7 +55,7 @@ export interface Flight {
     Stops: number;
     StopTime: string;
     TripDuration: string;
-    StopCity: null;
+    StopCity: undefined;
     AirlineLogoUrl: string;
     FlightLegs: FlightLeg[];
 }

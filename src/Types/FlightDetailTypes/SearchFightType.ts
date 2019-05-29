@@ -2,6 +2,10 @@ import {
   FlightCombination,
 } from "./FlightDetailTypes";
 
+import {
+  ResponseHeaders,
+} from "../";
+
 interface Itineraries {
   [key: string]: string;
 }
@@ -18,7 +22,9 @@ export interface FlightSearchRequestBody {
   TargetCurrency: string;
 }
 
-export interface FlightSearchResponseBody {
-  FlightCombination: FlightCombination;
-  SelectData: string;
+export interface FlightSearchResponseBody extends ResponseHeaders {
+  data: {
+    FlightCombination: FlightCombination;
+    SelectData: string;
+  }[];
 }
